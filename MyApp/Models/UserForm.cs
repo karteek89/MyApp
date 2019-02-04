@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
 
-namespace MyApp.Entity.Poco
+namespace MyApp.Models
 {
-    public class UserForm : BaseEntity
+    public class UserForm
     {
+        public int Id { get; set; }
         public int UserId { get; set; }
         public string Field1 { get; set; }
         public string Field2 { get; set; }
@@ -16,5 +20,6 @@ namespace MyApp.Entity.Poco
         public string Field9 { get; set; }
         public string Field10 { get; set; }
         public bool IsActive { get; set; }
+        public DateTime CreatedOn { get; set; }
     }
 }

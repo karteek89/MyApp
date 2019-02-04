@@ -108,10 +108,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IUserFormService.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Extensions\DataTableHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\UserFormService.cs" />
   </ItemGroup>
@@ -148,27 +151,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MyApp.Contract\MyApp.Contract.csproj">
-      <Project>{bc12f5c6-a799-4939-8fd9-fc29e18bd2ca}</Project>
-      <Name>MyApp.Contract</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyApp.Entity\MyApp.Entity.csproj">
-      <Project>{64a079ad-5400-430a-899f-e320d2fcdc57}</Project>
-      <Name>MyApp.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MyApp.Repository\MyApp.Repository.csproj">
-      <Project>{1d34c3a1-541d-49ce-b06e-05d47e0cdfdf}</Project>
-      <Name>MyApp.Repository</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.eot" />

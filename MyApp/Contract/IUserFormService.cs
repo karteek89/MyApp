@@ -1,15 +1,15 @@
-﻿using MyApp.Entity.Poco;
+﻿using MyApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyApp.Contract.Services
+namespace MyApp.Contract
 {
     public interface IUserFormService
     {
-        Task<IQueryable<UserForm>> GetAllForms();
+        Task<IList<UserForm>> GetAllForms();
 
         Task<int> GetActiveFormsCount(int userId);
 
@@ -17,6 +17,6 @@ namespace MyApp.Contract.Services
 
         Task<int> DisableActiveForm(int userId);
 
-        Task<int> CreateNewFrom(UserForm userForm);  
+        Task<int> CreateNewFrom(UserForm userForm);
     }
 }

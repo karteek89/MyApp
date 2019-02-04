@@ -3,10 +3,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyApp.Services;
-using MyApp.Contract.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MyApp.Entity.Poco;
+using MyApp.Contract;
+using MyApp.Models;
 
 
 namespace MyApp.Controllers
@@ -23,41 +23,7 @@ namespace MyApp.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            //try
-            //{
-            //    var userForm = new UserForm
-            //    {
-            //        Field1 = string.Format("Field - {0}", DateTime.Now.ToString()),
-            //        Field2 = string.Format("Field - {0}", DateTime.Now.ToString()),
-            //        Field3 = string.Format("Field - {0}", DateTime.Now.ToString()),
-            //        Field4 = string.Format("Field - {0}", DateTime.Now.ToString()),
-            //        Field5 = string.Format("Field - {0}", DateTime.Now.ToString()),
-            //        IsActive = true,
-            //        CreatedOn = DateTime.Now
-            //    };
-
-            //    var totalCount = await _userFormService.AllFromCount();
-
-            //    // Some record exists
-            //    if (totalCount > 0)
-            //    {
-            //        var activeForm = _userFormService.GetActiveForm().Result;
-            //        if(activeForm != null) {
-            //            activeForm.IsActive = false;
-            //            await _userFormService.Update(activeForm);
-            //        }
-            //    }
-
-            //    var result = await _userFormService.CreateNewFrom(userForm);
-
-            //}
-            //catch (Exception e)
-            //{
-
-            //}
-
             return View();
-
         }
 
         [HttpGet]
