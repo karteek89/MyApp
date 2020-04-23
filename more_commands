@@ -1,0 +1,12 @@
+EDITOR=NANO crontab -u <username> -e
+to edit crontab for a specific user
+
+Nano Commands : 
+control + X.  = to exit. ->promted to save or discard
+Y+ Enter.  -> saves changes
+N+Enter --> Discard changes
+if no changes are made -->exits directly
+chmod 755 startup_script.sh. -> for permissions
+for every 15 minutes
+
+*/15 * * * * nohup ./startup_scripts.sh &
