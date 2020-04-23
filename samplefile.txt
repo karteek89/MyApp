@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Author : Karteek
+
+
+now=$(date +'%m-%d-%Y')
+logFileName="startup-script-output-$now.log"
+exec &> $logFileName   # To write all output to log file
+
+
+declare -A SCRIPT_NAME_AND_PATHS
+
+SCRIPT_NAME_AND_PATHS["script1.sh"]="script1.sh" # key of array is the process we need to check is it is running
+SCRIPT_NAME_AND_PATHS["script2.sh"]="script2.sh" # value of the array is the path of script which will run the process
+
+
+for KEY in "${!SCRIPT_NAME_AND_PATHS[@]}"
+do
+
+  # Get the process id of the process we want to check
+  PID=`ps -ef | grep $KEY | grep -v grep | awk '{print $2}'`
+  if [ -z "$PID" ]
+    then
+       echo "\$PID is empty"
+       nohup ./${SCRIPT_NAME_AND_PATHS[$KEY]} &
+       echo "Started script ${SCRIPT_NAME_AND_PATHS[$KEY]}"
+    else
+       echo "$PID is NOT empty"
+       #kill -9 $PID
+  fi
+
+done
+
+
+
+--------------------------------------------------------------
+#!/bin/bash
+LOG_FILE_NAME="/script1.log"
+exec &> $LOG_FILE_NAME
+
+while true    # this is an infinite loop
+do
+   echo "Sleeping for 9 seconds"
+   sleep 9
+done
+---------------------------------------------------------------
+
+
+
+
+Set of scripts to check and re-run processess on system start/reboot/ at some intervals
+
+
+1. This file contains scripts to Run stopped applications by name and location of the script that executes those processes.
+2. To run startup_script.sh on system reboot and start
+   1. We need to add it to crontab
+      a. Open crontab by   : EDITOR=NANO crontab -e
+      b. add these lines in the editor that opens
+         0 * * * * nohup ./startup_script.sh &     # this will run the cron every hour
+         0 10 * * * nohup ./startup_script.sh &    # to run everyday at 10:00
